@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://gorehab.github.io',
+  site: 'https://leantrace.github.io',
   base: '/GoRehab_Webpage/',
   trailingSlash: 'always',
   integrations: [sitemap()],
