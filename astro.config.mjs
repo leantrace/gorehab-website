@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://leantrace.github.io',
-  base: '/GoRehab_Webpage/',
+  base: '/gorehab-website/',
   trailingSlash: 'always',
   integrations: [sitemap()],
   i18n: {
