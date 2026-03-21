@@ -15,6 +15,8 @@ const base = import.meta.env.BASE_URL
     alt="footer shape"
     width="240"
     height="240"
+    loading="lazy"
+    decoding="async"
   />
 
   <div class="relative container mx-auto">
@@ -23,7 +25,7 @@ const base = import.meta.env.BASE_URL
         <!-- Logo -->
         <div class="col-span-12 lg:col-span-3 xl:col-span-3">
           <a href="#">
-            <img class="w-40" src={`${base}images/logo/logo.webp`} alt="GoRehab Logo" width="160" height="160" />
+            <img class="w-40" src={`${base}images/logo/logo.webp`} alt="GoRehab Logo" width="160" height="160" loading="lazy" decoding="async" />
           </a>
         </div>
 
@@ -84,19 +86,19 @@ const base = import.meta.env.BASE_URL
           <p class="text-base font-normal text-[#CFD3D7]">
             {content.copyright}{' '}
           </p>
-          <img width="80" height="80" class="w-20" src={`${base}images/logo/logo.webp`} alt="GoRehab Logo" />
+          <img width="80" height="80" class="w-20" src={`${base}images/logo/logo.webp`} alt="GoRehab Logo" loading="lazy" decoding="async" />
         </div>
 
         <div class="flex w-full flex-col md:flex-row lg:col-span-9 lg:justify-end xl:col-span-7">
           <div class="flex items-start">
-            <img class="mr-3" src={`${base}images/icons/location_on.svg`} alt="Location" width="30" height="30" />
+            <img class="mr-3" src={`${base}images/icons/location_on.svg`} alt="Location" width="30" height="30" loading="lazy" decoding="async" />
             <p class="w-[80%] text-base font-normal text-[#CFD3D7]">
               {content.address}
             </p>
           </div>
 
           <div class="mt-3 flex items-start md:mt-0 md:ml-5">
-            <img class="mr-3" src={`${base}images/icons/email.svg`} alt="Email" width="30" height="30" />
+            <img class="mr-3" src={`${base}images/icons/email.svg`} alt="Email" width="30" height="30" loading="lazy" decoding="async" />
             <a class="text-base font-normal text-[#CFD3D7]" href="mailto:info@gorehab.ch"> info@gorehab.ch </a>
           </div>
         </div>
