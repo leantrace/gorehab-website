@@ -1,0 +1,44 @@
+---
+interface Props {
+  lang: string
+}
+
+const { lang } = Astro.props
+const currentPath = Astro.url.pathname
+const base = import.meta.env.BASE_URL
+
+// Compute language switcher URLs
+const otherLang = lang === 'en' ? 'de' : 'en'
+const enUrl = `${base}en/`
+const deUrl = `${base}de/`
+const isEnglish = lang === 'en'
+---
+
+<header class="px-4 py-5 md:py-7">
+  <div class="container mx-auto">
+    <div class="mx-auto max-w-[1230px]">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <div>
+          <a href={`${base}${lang}/`}>
+            <img class="w-32" src={`${base}images/logo/logo.png`} alt="GoRehab Logo" width="128" height="128" />
+          </a>
+        </div>
+
+        <!-- Language Switcher -->
+        <div class="flex items-center space-x-2 text-base font-medium">
+          <a
+            href={deUrl}
+            class:list={['transition-colors', !isEnglish ? 'font-bold text-[#699980]' : 'text-gray-500 hover:text-[#699980]']}
+          >
+            DE
+          </a>
+          <span class="text-gray-400">|</span>
+          <a href={enUrl} class:list={['transition-colors', isEnglish ? 'font-bold text-[#699980]' : 'text-gray-500 hover:text-[#699980]']}>
+            EN
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

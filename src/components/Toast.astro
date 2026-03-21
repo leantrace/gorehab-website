@@ -1,0 +1,34 @@
+<!-- Toast notification container + vanilla JS utility -->
+<div id="toast-container" class="toast-container"></div>
+
+<script>
+  declare global {
+    interface Window {
+      showToast: (message: string, type?: 'success' | 'error') => void
+    }
+  }
+
+  function showToast(message: string, type: 'success' | 'error' = 'success') {
+    const container = document.getElementById('toast-container')
+    if (!container) return
+
+    const toast = document.createElement('div')
+    toast.className = `toast ${type}`
+    toast.textContent = message
+    container.appendChild(toast)
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+      toast.classList.add('show')
+    })
+
+    // Auto-remove after 5s
+    setTimeout(() => {
+      toast.classList.remove('show')
+      setTimeout(() => toast.remove(), 300)
+    }, 5000)
+  }
+
+  // Expose globally for inline scripts
+  window.showToast = showToast
+</script>

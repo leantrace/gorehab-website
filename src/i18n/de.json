@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "title_start": "Erlangen Sie Kontrolle über Ihre",
+    "title_highlight": "Hände mit DextEgg",
+    "title_end": "– Für ein aktives Leben",
+    "description": "Unsere interaktive Therapie mit dem DextEgg-System verbessert Ihre Feinmotorik und ermöglicht es Ihnen, alltägliche Bewegungen mit Sicherheit auszuführen.",
+    "btn_contact": "Kontaktieren",
+    "btn_newsletter": "Newsletter",
+    "card_b2b_title": "B2B",
+    "card_b2b_desc": "Krankenhäuser, Rehakliniken",
+    "card_congrats_title": "Glückwunsch",
+    "card_congrats_desc": "Ihre Sitzung ist beendet",
+    "card_b2c_title": "B2C",
+    "card_b2c_desc": "Patienten und Therapeuten",
+    "card_rehab_title": "Rehabilitationstechnik",
+    "card_rehab_time": "Heute um 12:00 Uhr",
+    "card_rehab_btn": "Jetzt beitreten"
+  },
+  "brand": {
+    "title": "Partnerkliniken und Unterstützer"
+  },
+  "hand_therapy": {
+    "title_start": "Erreichen Sie Erfolg in der",
+    "title_highlight": "Handtherapie",
+    "title_end": "mit messbaren Ergebnissen",
+    "description": "Unsere interaktive Therapie mit dem DextEgg-System verbessert Ihre Feinmotorik und ermöglicht es Ihnen, alltägliche Bewegungen mit Sicherheit auszuführen.",
+    "list_items": [
+      "Spielerisches Training – Motivierende Übungen mit Echtzeit-Feedback",
+      "Messbarer Fortschritt – Digitale Überwachung für Therapeuten",
+      "Personalisierte Anpassung – Intelligente Algorithmen, auf Ihr Tempo abgestimmt",
+      "Flexibles Heimtraining – Trainieren Sie wann und wo Sie wollen. Für Ergotherapiezentren, Spezialkliniken und Heimpatienten."
+    ]
+  },
+  "coming_soon": {
+    "title_start": "Noch nicht verfügbar – Aber",
+    "title_highlight": "Bald erhältlich!",
+    "description": "Unsere Lösung befindet sich noch in der Entwicklung. Abonnieren Sie unseren Newsletter für exklusive Updates.",
+    "healthcare_title": "Für medizinisches Fachpersonal:",
+    "healthcare_desc": "Kontaktieren Sie uns für eine exklusive Demo und frühe Testmöglichkeiten.",
+    "join_title": "Auf die Warteliste:",
+    "placeholder": "Geben Sie Ihre E-Mail ein",
+    "button": "BEITRETEN",
+    "alert_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "alert_success": "Danke fürs Anmelden!"
+  },
+  "about": {
+    "title": "Über uns",
+    "description_1": "Wir sind ein junges Startup aus dem ARTORG Center for Biomedical Engineering Research der Universität Bern. Unser Ziel ist es, die Rehabilitation durch innovative, interaktive und datengesteuerte Lösungen neu zu definieren – beginnend mit unserem DextEgg-System.",
+    "description_2": "Wir setzen uns leidenschaftlich dafür ein, effektive und motivierende Therapien für Menschen mit Rehabilitationsbedarf anzubieten – unabhängig von Ort und Zeit. Durch den Einsatz digitaler Technologien wollen wir die Therapie in Kliniken und darüber hinaus revolutionieren und die langfristige Selbstständigkeit im Alltag fördern.",
+    "team": [
+      { "name": "Nic Krummenacher", "role": "Mitgründer / CEO", "image": "/images/s1.png" },
+      { "name": "Samuel Knobel, MD PhD", "role": "Mitgründer / CTO", "image": "/images/s2.png" },
+      { "name": "Alexander Schamne", "role": "Lead Developer", "image": "/images/s8.png" },
+      { "name": "Dr. Stephan Gerber", "role": "Leiter Regulatory", "image": "/images/s3.png" },
+      { "name": "Prof. Dr. Tobias Nef", "role": "Wissenschaftlicher Berater", "image": "/images/s4.png" },
+      { "name": "Prof. Dr. Tim Vanbellingen", "role": "Klinischer Berater", "image": "/images/s5.png" },
+      { "name": "Dr. Maurice Hälg", "role": "Unternehmerischer Berater", "image": "/images/s6.png" },
+      { "name": "Dr. Gaëtan Marti", "role": "Unternehmerischer Berater", "image": "/images/s7.png" }
+    ]
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns. Sagen Sie uns, was Sie brauchen.",
+    "label_name": "Vorname",
+    "placeholder_name": "Geben Sie Ihren Vornamen ein",
+    "label_email": "E-Mail",
+    "placeholder_email": "Geben Sie Ihre E-Mail ein",
+    "label_message": "Nachricht",
+    "placeholder_message": "Erzählen Sie uns gerne von sich und wie wir Ihnen helfen können.",
+    "button": "Absenden",
+    "alert_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "alert_success": "Nachricht erfolgreich gesendet!"
+  },
+  "footer": {
+    "company_title": "Unternehmen",
+    "linkedin": "LinkedIn",
+    "newsletter_title": "Newsletter abonnieren",
+    "email_label": "Ihre E-Mail",
+    "email_placeholder": "Geben Sie Ihre E-Mail ein",
+    "subscribe_btn": "Abonnieren",
+    "copyright": "© Copyright",
+    "address": "Freiburgstrasse 3 · 3010 Bern · Schweiz",
+    "alert_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "alert_success": "Erfolgreich zum Newsletter angemeldet!"
+  },
+  "download": {
+    "title": "Interne Versionen herunterladen",
+    "password_label": "Zugangspasswort eingeben",
+    "password_placeholder": "Passwort",
+    "unlock_btn": "Entsperren",
+    "error_password": "Falsches Passwort",
+    "version_col": "Version",
+    "date_col": "Datum",
+    "notes_col": "Änderungen",
+    "action_col": "Herunterladen"
+  }
+}

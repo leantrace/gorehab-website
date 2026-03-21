@@ -1,0 +1,160 @@
+---
+interface Props {
+  content: any
+  lang: string
+}
+
+const { content, lang } = Astro.props
+const base = import.meta.env.BASE_URL
+---
+
+<footer id="newsletter" class="relative overflow-hidden bg-[#283646] px-4 pt-10 pb-10 md:pt-16 md:pb-16 lg:pt-20">
+  <img
+    class="absolute top-0 left-0 max-sm:-ml-24 max-sm:size-[200px]"
+    src={`${base}images/footer-union.svg`}
+    alt="footer shape"
+    width="240"
+    height="240"
+  />
+
+  <div class="relative container mx-auto">
+    <div class="mx-auto max-w-[1230px]">
+      <div class="grid grid-cols-12 gap-8 border-b border-[#699980] pb-10 md:pb-16 lg:pb-28">
+        <!-- Logo -->
+        <div class="col-span-12 lg:col-span-3 xl:col-span-3">
+          <a href="#">
+            <img class="w-40" src={`${base}images/logo/logo.png`} alt="GoRehab Logo" width="160" height="160" />
+          </a>
+        </div>
+
+        <!-- Company Links -->
+        <div class="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
+          <h2 class="mb-5 text-base font-bold text-[#699980] capitalize">
+            {content.company_title}
+          </h2>
+          <ul class="space-y-3">
+            <li>
+              <a
+                class="text-base font-normal text-[#CFD3D7]"
+                href="https://www.linkedin.com/company/gorehab"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {content.linkedin}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-span-12 lg:col-span-4 xl:col-span-5">
+          <h2 class="mb-5 font-bold text-[#699980]">
+            {content.newsletter_title}
+          </h2>
+          <label class="mb-3 text-base font-normal text-[#CFD3D7]" for="email_footer">
+            {content.email_label}
+          </label>
+
+          <form
+            id="footer-newsletter-form"
+            class="mt-2 flex"
+            data-success={content.alert_success}
+            data-error-email={content.alert_invalid_email}
+          >
+            <input
+              type="email"
+              id="email_footer"
+              name="email_from"
+              placeholder={content.email_placeholder}
+              class="w-full max-w-[180px] border border-[#387AE7] bg-[#4F5A68] p-2 text-[#CFD3D7] placeholder:text-[#77808B] focus:ring focus:ring-green-400 focus:outline-none md:max-w-[320px] md:p-4"
+            />
+            <button
+              type="submit"
+              class="ml-2 w-24 rounded-md bg-[#699980] px-2 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-40 md:ml-4 md:px-4"
+            >
+              {content.subscribe_btn}
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom row -->
+      <div class="flex flex-col-reverse pt-8 max-md:items-center max-md:gap-4 lg:grid lg:grid-cols-12">
+        <div class="mt-4 flex items-center md:flex-row lg:col-span-3 xl:col-span-5">
+          <p class="text-base font-normal text-[#CFD3D7]">
+            {content.copyright}{' '}
+          </p>
+          <img width="80" height="80" class="w-20" src={`${base}images/logo/logo.png`} alt="GoRehab Logo" />
+        </div>
+
+        <div class="flex w-full flex-col md:flex-row lg:col-span-9 lg:justify-end xl:col-span-7">
+          <div class="flex items-start">
+            <img class="mr-3" src={`${base}images/icons/location_on.svg`} alt="Location" width="30" height="30" />
+            <p class="w-[80%] text-base font-normal text-[#CFD3D7]">
+              {content.address}
+            </p>
+          </div>
+
+          <div class="mt-3 flex items-start md:mt-0 md:ml-5">
+            <img class="mr-3" src={`${base}images/icons/email.svg`} alt="Email" width="30" height="30" />
+            <a class="text-base font-normal text-[#CFD3D7]" href="mailto:info@gorehab.ch"> info@gorehab.ch </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  import emailjs from '@emailjs/browser'
+
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  function initFooterNewsletter() {
+    const form = document.getElementById('footer-newsletter-form') as HTMLFormElement | null
+    if (!form) return
+
+    const successMsg = form.dataset.success || 'Subscribed!'
+    const errorEmailMsg = form.dataset.errorEmail || 'Please enter a valid email.'
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const input = form.querySelector('input[name="email_from"]') as HTMLInputElement
+      const btn = form.querySelector('button') as HTMLButtonElement
+      const email = input?.value?.trim()
+
+      if (!email || !EMAIL_REGEX.test(email)) {
+        window.showToast(errorEmailMsg, 'error')
+        return
+      }
+
+      const originalText = btn.textContent
+      btn.disabled = true
+      btn.textContent = '...'
+
+      try {
+        emailjs.init({
+          publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
+          blockHeadless: true,
+          limitRate: { id: 'footer', throttle: 10000 },
+        })
+
+        await emailjs.send(import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, import.meta.env.PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID, {
+          email_from: email,
+        })
+
+        window.showToast(successMsg, 'success')
+        input.value = ''
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : 'Something went wrong'
+        window.showToast('Error: ' + msg, 'error')
+      } finally {
+        btn.disabled = false
+        btn.textContent = originalText
+      }
+    })
+  }
+
+  document.addEventListener('astro:page-load', initFooterNewsletter)
+  initFooterNewsletter()
+</script>

@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+:root {
+  --brand-gradient: 270deg, #fe92a2 0%, #ed3350 100%;
+}
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-beatrice: 'Beatrice', serif;
+  --color-primary: #ed3350;
+  --color-headText: #333331;
+  --shadow-3xl: 2px 2px 20px 0px #0000000a;
+  --shadow-4xl: 0px 0px 20px 0px #eb4c6080;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Brand marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Toast styles */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast.success {
+  background-color: #699980;
+}
+
+.toast.error {
+  background-color: #ed3350;
+}

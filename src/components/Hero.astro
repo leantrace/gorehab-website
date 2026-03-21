@@ -1,0 +1,104 @@
+---
+interface Props {
+  content: any
+}
+
+const { content } = Astro.props
+const base = import.meta.env.BASE_URL
+---
+
+<section class="relative px-4 pt-10 pb-14 sm:pt-12 sm:pb-16 md:pt-14 md:pb-28">
+  <img src={`${base}images/hero-bg.svg`} class="absolute inset-0 h-full w-full object-cover object-bottom" alt="hero background" />
+  <div class="relative container mx-auto">
+    <div class="mx-auto max-w-[1230px]">
+      <div class="grid grid-cols-1 items-center max-lg:gap-12 lg:grid-cols-2">
+        <!-- Left Column: Text -->
+        <div class="pr-4 lg:pr-14">
+          <h1 class="font-beatrice text-2xl leading-[1.3] font-normal text-white sm:text-3xl md:text-[40px]">
+            {content.title_start}{' '}
+            <span class="font-semibold">{content.title_highlight}</span>
+            {content.title_end}
+          </h1>
+          <p class="mt-2 mb-4 text-sm leading-normal font-normal text-white sm:mb-8 md:text-lg">
+            {content.description}
+          </p>
+          <div class="flex flex-row items-center pt-4">
+            <a
+              class="text-headText mr-4 w-full max-w-[200px] rounded-md border-2 border-[#BBCCC2] bg-[#BBCCC2] p-3 text-center text-sm font-bold sm:text-[15px]"
+              href="#contact"
+            >
+              {content.btn_contact}
+            </a>
+            <a
+              class="mr-2 w-full max-w-[200px] rounded-md border-2 border-white bg-transparent p-3 text-center text-sm font-bold text-white sm:text-[15px]"
+              href="#newsletter"
+            >
+              {content.btn_newsletter}
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Floating Cards & Image -->
+        <div class="relative">
+          <!-- Card 1: B2B -->
+          <div
+            class="relative -left-0 mb-2 w-full rounded-lg bg-[#f4eaeacc] px-4 py-2 sm:absolute sm:mb-0 sm:w-[245px] sm:py-3 lg:-left-[35px]"
+          >
+            <div class="flex items-center">
+              <img src={`${base}images/icons/h1.png`} width="30" height="30" alt="B2B icon" />
+              <div class="ml-4">
+                <h3 class="text-sm font-bold text-[#595959]">{content.card_b2b_title}</h3>
+                <p class="text-[11px] font-semibold text-[#545567]">{content.card_b2b_desc}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Congratulations -->
+          <div
+            class="relative top-0 right-0 mb-2 w-full rounded-lg bg-[#f4eaeacc] px-4 py-2 sm:absolute sm:top-0 sm:mb-0 sm:w-[220px] sm:py-3"
+          >
+            <div class="flex items-center">
+              <img src={`${base}images/icons/h2.png`} width="30" height="30" alt="Congratulations icon" />
+              <div class="ml-4">
+                <h3 class="text-sm font-bold text-[#595959]">{content.card_congrats_title}</h3>
+                <p class="text-[11px] font-semibold text-[#545567]">{content.card_congrats_desc}</p>
+              </div>
+            </div>
+          </div>
+
+          <img class="w-full" src={`${base}images/hero-right.png`} alt="DextEgg Hero" width="650" height="410" />
+
+          <!-- Card 3: B2C -->
+          <div class="relative right-0 bottom-0 mb-2 w-full rounded-lg bg-[#f4eaeacc] px-4 py-2 sm:absolute sm:mb-0 sm:w-[220px] sm:py-3">
+            <div class="flex items-center">
+              <img src={`${base}images/icons/h3.png`} width="30" height="30" alt="B2C icon" />
+              <div class="ml-4">
+                <h3 class="text-sm font-bold text-[#595959]">{content.card_b2c_title}</h3>
+                <p class="text-[11px] font-semibold text-[#545567]">{content.card_b2c_desc}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Rehab Tech -->
+          <div
+            class="relative -left-0 z-1 mb-2 w-full rounded-lg bg-[#f4eaeacc] px-4 py-2 sm:absolute sm:bottom-[45px] sm:mb-0 sm:w-[235px] sm:py-3 lg:-left-[45px]"
+          >
+            <div class="flex items-start">
+              <div class="relative">
+                <img src={`${base}images/profile.png`} width="30" height="30" alt="Profile" />
+                <div class="absolute right-0 bottom-0 h-[10px] w-[10px] rounded-full bg-red-500"></div>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-[12px] font-bold text-[#595959]">{content.card_rehab_title}</h3>
+                <p class="text-[10px] font-semibold text-[#545567]">{content.card_rehab_time}</p>
+                <p class="mt-1.5 inline-block rounded-full bg-[#699980] px-6 py-1.5 text-[10px] font-bold text-white sm:mt-3">
+                  {content.card_rehab_btn}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

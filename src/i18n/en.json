@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "title_start": "Regain Control Over Your",
+    "title_highlight": "Hands with DextEgg",
+    "title_end": "– For an Active Life",
+    "description": "Our interactive therapy with the DextEgg System enhances your fine motor skills, allowing you to perform daily movements with confidence and ease.",
+    "btn_contact": "Contact Us",
+    "btn_newsletter": "Newsletter",
+    "card_b2b_title": "B2B",
+    "card_b2b_desc": "Hospitals, rehabilitation clinics",
+    "card_congrats_title": "Congratulations",
+    "card_congrats_desc": "Your Session completed",
+    "card_b2c_title": "B2C",
+    "card_b2c_desc": "Patients and therapists",
+    "card_rehab_title": "Rehabilitation Technology",
+    "card_rehab_time": "Today at 12.00 PM",
+    "card_rehab_btn": "Join Now"
+  },
+  "brand": {
+    "title": "Partner Clinics and Supporters"
+  },
+  "hand_therapy": {
+    "title_start": "Achieve Success in",
+    "title_highlight": "Hand Therapy",
+    "title_end": "with Measurable Results",
+    "description": "Our interactive therapy with the DextEgg System enhances your fine motor skills, allowing you to perform daily movements with confidence and ease.",
+    "list_items": [
+      "Gamified Training – Engaging exercises with real-time feedback",
+      "Measurable Progress – Digital monitoring for therapists",
+      "Personalized Adaptation – Smart algorithms tailored to your pace",
+      "Flexible Home Training – Train anytime, anywhere. For occupational therapy centers, specialized clinics, and home patients."
+    ]
+  },
+  "coming_soon": {
+    "title_start": "Not Available Yet – But",
+    "title_highlight": "Coming Soon!",
+    "description": "Our solution is still under development. Subscribe to our newsletter for exclusive updates.",
+    "healthcare_title": "For healthcare professionals:",
+    "healthcare_desc": "Contact us for an exclusive demo and early testing opportunities.",
+    "join_title": "Join the waiting list:",
+    "placeholder": "Enter your Email",
+    "button": "JOIN",
+    "alert_invalid_email": "Please enter a valid email address.",
+    "alert_success": "Thanks for joining!"
+  },
+  "about": {
+    "title": "About Us",
+    "description_1": "We are a young startup from the ARTORG Center for Biomedical Engineering Research at the University of Bern. Our goal is to redefine rehabilitation through innovative, interactive, and data-driven solutions, with our first solution being the DextEgg System.",
+    "description_2": "We are passionate about providing effective and motivating therapy for individuals with rehabilitative needs—independent of location and time. By leveraging digital technologies, we aim to revolutionize therapy both in clinics and beyond, fostering long-term improvements in independent daily living.",
+    "team": [
+      { "name": "Nic Krummenacher", "role": "Co-Founder / CEO", "image": "/images/s1.png" },
+      { "name": "Samuel Knobel, MD PhD", "role": "Co-Founder / CTO", "image": "/images/s2.png" },
+      { "name": "Alexander Schamne", "role": "Lead Developer", "image": "/images/s8.png" },
+      { "name": "Dr. Stephan Gerber", "role": "Regulatory Lead", "image": "/images/s3.png" },
+      { "name": "Prof. Dr. Tobias Nef", "role": "Scientific Advisor", "image": "/images/s4.png" },
+      { "name": "Prof. Dr. Tim Vanbellingen", "role": "Clinical Advisor", "image": "/images/s5.png" },
+      { "name": "Dr. Maurice Hälg", "role": "Entrepreneurial Advisor", "image": "/images/s6.png" },
+      { "name": "Dr. Gaëtan Marti", "role": "Entrepreneurial Advisor", "image": "/images/s7.png" }
+    ]
+  },
+  "contact": {
+    "title": "Get in touch with us. Tell us what you need.",
+    "label_name": "First Name",
+    "placeholder_name": "Enter your first name",
+    "label_email": "Email",
+    "placeholder_email": "Enter your email",
+    "label_message": "Message",
+    "placeholder_message": "Feel free to tell us about yourself, and how we could help you.",
+    "button": "Submit",
+    "alert_invalid_email": "Please enter a valid email address.",
+    "alert_success": "Message sent successfully!"
+  },
+  "footer": {
+    "company_title": "Company",
+    "linkedin": "LinkedIn",
+    "newsletter_title": "Join a Newsletter",
+    "email_label": "Your Email",
+    "email_placeholder": "Enter Your Email",
+    "subscribe_btn": "Subscribe",
+    "copyright": "© Copyright",
+    "address": "Freiburgstrasse 3 · 3010 Bern · Switzerland",
+    "alert_invalid_email": "Please enter a valid email address.",
+    "alert_success": "Successfully subscribed to Newsletter!"
+  },
+  "download": {
+    "title": "Download Internal Versions",
+    "password_label": "Enter Access Password",
+    "password_placeholder": "Password",
+    "unlock_btn": "Unlock",
+    "error_password": "Wrong password",
+    "version_col": "Version",
+    "date_col": "Date",
+    "notes_col": "Release Notes",
+    "action_col": "Download"
+  }
+}

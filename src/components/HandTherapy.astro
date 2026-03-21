@@ -1,0 +1,39 @@
+---
+interface Props {
+  content: any
+}
+
+const { content } = Astro.props
+const base = import.meta.env.BASE_URL
+---
+
+<section class="relative z-1 px-4 pt-12 md:py-16 lg:py-20">
+  <img src={`${base}images/ht-right.svg`} class="absolute top-0 right-0 w-[200px] md:w-[300px]" width="424" height="534" alt="decoration" />
+  <div class="container mx-auto">
+    <div class="mx-auto grid max-w-[1200px] grid-cols-1 items-center max-lg:gap-8 lg:grid-cols-2">
+      <div class="order-2 justify-center pr-8 max-lg:flex lg:order-1 lg:pl-14">
+        <img src={`${base}images/ht.png`} class="-mb-14 w-full max-md:-mr-4" width="424" height="534" alt="Hand therapy device" />
+      </div>
+      <div class="order-1 space-y-3.5 lg:order-2 lg:space-y-6">
+        <h1 class="font-beatrice text-headText pb-3 text-2xl leading-[1.3] font-normal sm:text-3xl md:text-[44px]">
+          {content.title_start}{' '}
+          <span class="font-semibold text-[#699980]">{content.title_highlight}</span>{' '}
+          {content.title_end}
+        </h1>
+        <p class="w-full text-sm leading-normal font-light text-[#757575] md:text-lg lg:w-[85%]">
+          {content.description}
+        </p>
+
+        <ul class="grid w-full gap-1">
+          {
+            content.list_items.map((item: string) => (
+              <li class="text-sm leading-normal font-light text-[#757575] md:text-lg">
+                <span class="text-[#333331]">&#x2714;</span> {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

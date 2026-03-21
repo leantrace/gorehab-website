@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Hero from '../../components/Hero.astro'
+import Brand from '../../components/Brand.astro'
+import HandTherapy from '../../components/HandTherapy.astro'
+import ComingSoon from '../../components/ComingSoon.astro'
+import About from '../../components/About.astro'
+import Contact from '../../components/Contact.astro'
+import { getDictionary } from '../../lib/i18n'
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'de' } }]
+}
+
+const { lang } = Astro.params
+const dict = getDictionary(lang!)
+---
+
+<BaseLayout
+  title="GoRehab - Regain Control Over Your Hands with DextEgg"
+  description={dict.hero.description}
+  lang={lang!}
+  footerContent={dict.footer}
+>
+  <Hero content={dict.hero} />
+  <Brand content={dict.brand} />
+  <HandTherapy content={dict.hand_therapy} />
+  <ComingSoon content={dict.coming_soon} />
+  <About content={dict.about} />
+  <Contact content={dict.contact} />
+</BaseLayout>
