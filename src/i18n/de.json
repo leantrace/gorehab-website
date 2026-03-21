@@ -48,14 +48,14 @@
     "description_1": "Wir sind ein junges Startup aus dem ARTORG Center for Biomedical Engineering Research der Universität Bern. Unser Ziel ist es, die Rehabilitation durch innovative, interaktive und datengesteuerte Lösungen neu zu definieren – beginnend mit unserem DextEgg-System.",
     "description_2": "Wir setzen uns leidenschaftlich dafür ein, effektive und motivierende Therapien für Menschen mit Rehabilitationsbedarf anzubieten – unabhängig von Ort und Zeit. Durch den Einsatz digitaler Technologien wollen wir die Therapie in Kliniken und darüber hinaus revolutionieren und die langfristige Selbstständigkeit im Alltag fördern.",
     "team": [
-      { "name": "Nic Krummenacher", "role": "Mitgründer / CEO", "image": "/images/s1.png" },
-      { "name": "Samuel Knobel, MD PhD", "role": "Mitgründer / CTO", "image": "/images/s2.png" },
-      { "name": "Alexander Schamne", "role": "Lead Developer", "image": "/images/s8.png" },
-      { "name": "Dr. Stephan Gerber", "role": "Leiter Regulatory", "image": "/images/s3.png" },
-      { "name": "Prof. Dr. Tobias Nef", "role": "Wissenschaftlicher Berater", "image": "/images/s4.png" },
-      { "name": "Prof. Dr. Tim Vanbellingen", "role": "Klinischer Berater", "image": "/images/s5.png" },
-      { "name": "Dr. Maurice Hälg", "role": "Unternehmerischer Berater", "image": "/images/s6.png" },
-      { "name": "Dr. Gaëtan Marti", "role": "Unternehmerischer Berater", "image": "/images/s7.png" }
+      { "name": "Nic Krummenacher", "role": "Mitgründer / CEO", "image": "/images/s1.webp" },
+      { "name": "Samuel Knobel, MD PhD", "role": "Mitgründer / CTO", "image": "/images/s2.webp" },
+      { "name": "Alexander Schamne", "role": "Lead Developer", "image": "/images/s8.webp" },
+      { "name": "Dr. Stephan Gerber", "role": "Leiter Regulatory", "image": "/images/s3.webp" },
+      { "name": "Prof. Dr. Tobias Nef", "role": "Wissenschaftlicher Berater", "image": "/images/s4.webp" },
+      { "name": "Prof. Dr. Tim Vanbellingen", "role": "Klinischer Berater", "image": "/images/s5.webp" },
+      { "name": "Dr. Maurice Hälg", "role": "Unternehmerischer Berater", "image": "/images/s6.webp" },
+      { "name": "Dr. Gaëtan Marti", "role": "Unternehmerischer Berater", "image": "/images/s7.webp" }
     ]
   },
   "contact": {

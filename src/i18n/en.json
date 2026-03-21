@@ -48,14 +48,14 @@
     "description_1": "We are a young startup from the ARTORG Center for Biomedical Engineering Research at the University of Bern. Our goal is to redefine rehabilitation through innovative, interactive, and data-driven solutions, with our first solution being the DextEgg System.",
     "description_2": "We are passionate about providing effective and motivating therapy for individuals with rehabilitative needs—independent of location and time. By leveraging digital technologies, we aim to revolutionize therapy both in clinics and beyond, fostering long-term improvements in independent daily living.",
     "team": [
-      { "name": "Nic Krummenacher", "role": "Co-Founder / CEO", "image": "/images/s1.png" },
-      { "name": "Samuel Knobel, MD PhD", "role": "Co-Founder / CTO", "image": "/images/s2.png" },
-      { "name": "Alexander Schamne", "role": "Lead Developer", "image": "/images/s8.png" },
-      { "name": "Dr. Stephan Gerber", "role": "Regulatory Lead", "image": "/images/s3.png" },
-      { "name": "Prof. Dr. Tobias Nef", "role": "Scientific Advisor", "image": "/images/s4.png" },
-      { "name": "Prof. Dr. Tim Vanbellingen", "role": "Clinical Advisor", "image": "/images/s5.png" },
-      { "name": "Dr. Maurice Hälg", "role": "Entrepreneurial Advisor", "image": "/images/s6.png" },
-      { "name": "Dr. Gaëtan Marti", "role": "Entrepreneurial Advisor", "image": "/images/s7.png" }
+      { "name": "Nic Krummenacher", "role": "Co-Founder / CEO", "image": "/images/s1.webp" },
+      { "name": "Samuel Knobel, MD PhD", "role": "Co-Founder / CTO", "image": "/images/s2.webp" },
+      { "name": "Alexander Schamne", "role": "Lead Developer", "image": "/images/s8.webp" },
+      { "name": "Dr. Stephan Gerber", "role": "Regulatory Lead", "image": "/images/s3.webp" },
+      { "name": "Prof. Dr. Tobias Nef", "role": "Scientific Advisor", "image": "/images/s4.webp" },
+      { "name": "Prof. Dr. Tim Vanbellingen", "role": "Clinical Advisor", "image": "/images/s5.webp" },
+      { "name": "Dr. Maurice Hälg", "role": "Entrepreneurial Advisor", "image": "/images/s6.webp" },
+      { "name": "Dr. Gaëtan Marti", "role": "Entrepreneurial Advisor", "image": "/images/s7.webp" }
     ]
   },
   "contact": {
