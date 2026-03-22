@@ -16,12 +16,7 @@ const { lang } = Astro.params
 const dict = getDictionary(lang!)
 ---
 
-<BaseLayout
-  title="GoRehab - Regain Control Over Your Hands with DextEgg"
-  description={dict.hero.description}
-  lang={lang!}
-  footerContent={dict.footer}
->
+<BaseLayout title={dict.page_title} description={dict.page_description} lang={lang!} footerContent={dict.footer}>
   <Hero content={dict.hero} />
   <Brand content={dict.brand} />
   <HandTherapy content={dict.hand_therapy} />

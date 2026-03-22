@@ -1,6 +1,8 @@
 ---
+import type { FooterContent } from '../lib/i18n'
+
 interface Props {
-  content: any
+  content: FooterContent
   lang: string
 }
 
@@ -24,7 +26,7 @@ const base = import.meta.env.BASE_URL
       <div class="grid grid-cols-12 gap-8 border-b border-[#4a7c62] pb-10 md:pb-16 lg:pb-28">
         <!-- Logo -->
         <div class="col-span-12 lg:col-span-3 xl:col-span-3">
-          <a href="#">
+          <a href={`${base}${lang}/`}>
             <img
               class="w-40"
               src={`${base}images/logo/logo.webp`}
@@ -77,6 +79,7 @@ const base = import.meta.env.BASE_URL
               type="email"
               id="email_footer"
               name="email_from"
+              required
               placeholder={content.email_placeholder}
               class="w-full max-w-[180px] border border-[#387AE7] bg-[#4F5A68] p-2 text-[#CFD3D7] placeholder:text-[#77808B] focus:ring focus:ring-green-400 focus:outline-none md:max-w-[320px] md:p-4"
             />
@@ -145,6 +148,12 @@ const base = import.meta.env.BASE_URL
     const successMsg = form.dataset.success || 'Subscribed!'
     const errorEmailMsg = form.dataset.errorEmail || 'Please enter a valid email.'
 
+    emailjs.init({
+      publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
+      blockHeadless: true,
+      limitRate: { id: 'footer', throttle: 10000 },
+    })
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
       const input = form.querySelector('input[name="email_from"]') as HTMLInputElement
@@ -161,12 +170,6 @@ const base = import.meta.env.BASE_URL
       btn.textContent = '...'
 
       try {
-        emailjs.init({
-          publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
-          blockHeadless: true,
-          limitRate: { id: 'footer', throttle: 10000 },
-        })
-
         await emailjs.send(import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, import.meta.env.PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID, {
           email_from: email,
         })
@@ -183,6 +186,5 @@ const base = import.meta.env.BASE_URL
     })
   }
 
-  document.addEventListener('astro:page-load', initFooterNewsletter)
   initFooterNewsletter()
 </script>

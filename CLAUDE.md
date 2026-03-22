@@ -19,7 +19,7 @@ pnpm format:fix    # Auto-fix Prettier formatting
 - **Astro 5** — static site generator, zero JS by default
 - **Tailwind CSS 4** — via `@tailwindcss/vite` plugin (no separate tailwind.config)
 - **TypeScript** — strict mode, Props interfaces on all components
-- **Self-hosted Beatrice font** — weights 400 (Regular) and 700 (Bold), OTF format
+- **Self-hosted Beatrice font** — weights 400 (Regular) and 700 (Bold), WOFF2 format
 - **Google Fonts Inter** — body text, weights 300–700
 - **@emailjs/browser** — only runtime JS dependency (contact + newsletter forms)
 - **@astrojs/sitemap** — auto-generates sitemap on build
@@ -79,7 +79,8 @@ Defined in `src/styles/global.css` via Tailwind v4 `@theme` block:
 
 Key brand colors used inline:
 
-- `#699980` — Green accent (buttons, team names, active language)
+- `#4a7c62` — Green accent (buttons, team names, active language)
+- `#7ab896` — Light green accent (footer headings on dark background)
 - `#283646` — Footer dark background
 - `#EFFAF4` — Light green section background
 - `#757575` — Body/paragraph text
@@ -122,8 +123,8 @@ Environment variables (prefixed `PUBLIC_` for Astro client-side access):
 ## Deployment
 
 - GitHub Actions workflow in `.github/workflows/deploy.yaml`
-- Deploys to GitHub Pages on push to `master`
-- Base path: `/GoRehab_Webpage/` (set in `astro.config.mjs`)
+- Deploys to GitHub Pages on push to `main`
+- Base path: `/gorehab-website/` (set in `astro.config.mjs`)
 - Add EmailJS secrets in GitHub repo Settings → Secrets → Actions
 
 ## Working Guidelines
@@ -132,4 +133,4 @@ Environment variables (prefixed `PUBLIC_` for Astro client-side access):
 - **Security matters** — validate emails client-side, use EmailJS rate limiting
 - **Content is inline** — translations in JSON dictionaries, not CMS
 - **Alt text required** — never use empty `alt=""` on images
-- **Base path awareness** — all internal links and asset paths must account for `/GoRehab_Webpage/` base
+- **Base path awareness** — all internal links and asset paths must account for `/gorehab-website/` base

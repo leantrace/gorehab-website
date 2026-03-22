@@ -1,6 +1,8 @@
 ---
+import type { ContactContent } from '../lib/i18n'
+
 interface Props {
-  content: any
+  content: ContactContent
 }
 
 const { content } = Astro.props
@@ -25,6 +27,7 @@ const { content } = Astro.props
               id="fname"
               name="fname"
               type="text"
+              required
               placeholder={content.placeholder_name}
             />
           </div>
@@ -37,6 +40,7 @@ const { content } = Astro.props
               id="contact-email"
               name="email_from"
               type="email"
+              required
               placeholder={content.placeholder_email}
             />
           </div>
@@ -50,6 +54,7 @@ const { content } = Astro.props
             class="h-[150px] w-full resize-none rounded-lg border border-[#595959] p-3 text-sm font-normal text-[#595959] outline-0 sm:h-[200px] sm:p-4 sm:text-lg md:h-[250px] lg:h-[200px]"
             id="message"
             placeholder={content.placeholder_message}
+            required
             name="message"></textarea>
         </div>
 
@@ -76,6 +81,12 @@ const { content } = Astro.props
     const successMsg = form.dataset.success || 'Sent!'
     const errorEmailMsg = form.dataset.errorEmail || 'Invalid email.'
 
+    emailjs.init({
+      publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
+      blockHeadless: true,
+      limitRate: { id: 'contact', throttle: 10000 },
+    })
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
       const emailInput = form.querySelector('input[name="email_from"]') as HTMLInputElement
@@ -92,12 +103,6 @@ const { content } = Astro.props
       btn.textContent = '...'
 
       try {
-        emailjs.init({
-          publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
-          blockHeadless: true,
-          limitRate: { id: 'contact', throttle: 10000 },
-        })
-
         await emailjs.sendForm(import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID, form)
 
         window.showToast(successMsg, 'success')
@@ -112,6 +117,5 @@ const { content } = Astro.props
     })
   }
 
-  document.addEventListener('astro:page-load', initContactForm)
   initContactForm()
 </script>

@@ -1,4 +1,6 @@
 {
+  "page_title": "GoRehab - Erlangen Sie Kontrolle über Ihre Hände mit DextEgg",
+  "page_description": "Interaktive Therapie mit dem DextEgg-System für die Handrehabilitation.",
   "hero": {
     "title_start": "Erlangen Sie Kontrolle über Ihre",
     "title_highlight": "Hände mit DextEgg",
@@ -81,16 +83,5 @@
     "address": "Freiburgstrasse 3 · 3010 Bern · Schweiz",
     "alert_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     "alert_success": "Erfolgreich zum Newsletter angemeldet!"
-  },
-  "download": {
-    "title": "Interne Versionen herunterladen",
-    "password_label": "Zugangspasswort eingeben",
-    "password_placeholder": "Passwort",
-    "unlock_btn": "Entsperren",
-    "error_password": "Falsches Passwort",
-    "version_col": "Version",
-    "date_col": "Datum",
-    "notes_col": "Änderungen",
-    "action_col": "Herunterladen"
   }
 }

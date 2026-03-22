@@ -1,19 +1,21 @@
 ---
+import type { BrandContent } from '../lib/i18n'
+
 interface Props {
-  content: any
+  content: BrandContent
 }
 
 const { content } = Astro.props
 const base = import.meta.env.BASE_URL
 
 const brands = [
-  { image: `${base}images/brand/b1.svg` },
-  { image: `${base}images/brand/b2.svg` },
-  { image: `${base}images/brand/b3.svg` },
-  { image: `${base}images/brand/b4.svg` },
-  { image: `${base}images/brand/b5.svg` },
-  { image: `${base}images/brand/b8.webp` },
-  { image: `${base}images/brand/b9.svg` },
+  { image: `${base}images/brand/b1.svg`, name: 'Inselspital Bern' },
+  { image: `${base}images/brand/b2.svg`, name: 'Universitätsklinik für Neurologie' },
+  { image: `${base}images/brand/b3.svg`, name: 'ARTORG Center' },
+  { image: `${base}images/brand/b4.svg`, name: 'Universität Bern' },
+  { image: `${base}images/brand/b5.svg`, name: 'Innosuisse' },
+  { image: `${base}images/brand/b8.webp`, name: 'Venture Kick' },
+  { image: `${base}images/brand/b9.svg`, name: 'be-advanced' },
 ]
 ---
 
@@ -27,12 +29,12 @@ const brands = [
         <!-- CSS Marquee: logos rendered twice for seamless loop -->
         <div class="marquee-track flex" style="width: max-content;">
           {
-            [...brands, ...brands].map((brand, i) => (
+            [...brands, ...brands].map((brand) => (
               <div class="mx-[15px] flex max-h-[200px] min-h-[100px] w-[150px] flex-shrink-0 items-center justify-center md:mx-[30px]">
                 <img
                   class="h-auto max-h-[100px] w-auto"
                   src={brand.image}
-                  alt="Partner logo"
+                  alt={brand.name}
                   width="150"
                   height="100"
                   loading="lazy"

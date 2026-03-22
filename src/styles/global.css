@@ -9,6 +9,10 @@
   --font-beatrice: 'Beatrice', serif;
   --color-primary: #ed3350;
   --color-headText: #333331;
+  --color-green: #4a7c62;
+  --color-green-light: #7ab896;
+  --color-body: #757575;
+  --color-muted: #595959;
   --shadow-3xl: 2px 2px 20px 0px #0000000a;
   --shadow-4xl: 0px 0px 20px 0px #eb4c6080;
 }
@@ -41,6 +45,15 @@ button {
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
 }
 
 /* Toast styles */

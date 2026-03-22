@@ -4,11 +4,8 @@ interface Props {
 }
 
 const { lang } = Astro.props
-const currentPath = Astro.url.pathname
 const base = import.meta.env.BASE_URL
 
-// Compute language switcher URLs
-const otherLang = lang === 'en' ? 'de' : 'en'
 const enUrl = `${base}en/`
 const deUrl = `${base}de/`
 const isEnglish = lang === 'en'
@@ -34,18 +31,23 @@ const isEnglish = lang === 'en'
         </div>
 
         <!-- Language Switcher -->
-        <div class="flex items-center space-x-2 text-base font-medium">
-          <a
-            href={deUrl}
-            class:list={['transition-colors', !isEnglish ? 'font-bold text-[#4a7c62]' : 'text-gray-500 hover:text-[#4a7c62]']}
-          >
-            DE
-          </a>
-          <span class="text-gray-400">|</span>
-          <a href={enUrl} class:list={['transition-colors', isEnglish ? 'font-bold text-[#4a7c62]' : 'text-gray-500 hover:text-[#4a7c62]']}>
-            EN
-          </a>
-        </div>
+        <nav aria-label={isEnglish ? 'Language' : 'Sprache'}>
+          <div class="flex items-center space-x-2 text-base font-medium">
+            <a
+              href={deUrl}
+              class:list={['transition-colors', !isEnglish ? 'font-bold text-[#4a7c62]' : 'text-gray-500 hover:text-[#4a7c62]']}
+            >
+              DE
+            </a>
+            <span class="text-gray-400">|</span>
+            <a
+              href={enUrl}
+              class:list={['transition-colors', isEnglish ? 'font-bold text-[#4a7c62]' : 'text-gray-500 hover:text-[#4a7c62]']}
+            >
+              EN
+            </a>
+          </div>
+        </nav>
       </div>
     </div>
   </div>
