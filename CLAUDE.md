@@ -61,7 +61,7 @@ public/
 │   ├── icons/          # UI icons
 │   ├── logo/           # GoRehab logo
 │   └── *.png/svg       # Section images and decorations
-└── favicon.ico
+└── favicon.png
 ```
 
 ## Design Tokens
@@ -129,7 +129,7 @@ Environment variables (prefixed `PUBLIC_` for Astro client-side access):
 - GitHub Actions workflow in `.github/workflows/deploy.yaml`
 - Deploys to GitHub Pages on push to `main`
 - Base path: `/gorehab-website/` (set in `astro.config.mjs`)
-- Add EmailJS variables in GitHub repo Settings → Variables → Actions
+- Add EmailJS secrets in GitHub repo Settings → Secrets → Actions
 
 ## Working Guidelines
 

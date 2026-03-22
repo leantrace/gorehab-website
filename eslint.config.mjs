@@ -6,7 +6,7 @@ import tsparser from '@typescript-eslint/parser'
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    files: ['**/*.{ts,tsx,astro}'],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parser: tsparser,
     },

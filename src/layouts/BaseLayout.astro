@@ -3,18 +3,19 @@ import '../styles/global.css'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Toast from '../components/Toast.astro'
-import type { FooterContent } from '../lib/i18n'
+import type { FooterContent, Locale } from '../lib/i18n'
 
 interface Props {
   title: string
   description?: string
-  lang: string
+  lang: Locale
   footerContent: FooterContent
 }
 
 const base = import.meta.env.BASE_URL
 const site = 'https://leantrace.github.io'
 const { title, description, lang, footerContent } = Astro.props
+const desc = description ?? 'GoRehab - Interactive hand rehabilitation therapy'
 const canonicalUrl = `${site}${base}${lang}/`
 ---
 
@@ -23,7 +24,7 @@ const canonicalUrl = `${site}${base}${lang}/`
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={desc} />
     <link rel="icon" type="image/png" href={`${base}favicon.png`} />
     <meta name="theme-color" content="#ed3350" />
     <link rel="canonical" href={canonicalUrl} />
@@ -52,7 +53,7 @@ const canonicalUrl = `${site}${base}${lang}/`
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={desc} />
     <meta property="og:site_name" content="GoRehab" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'} />
@@ -81,7 +82,7 @@ const canonicalUrl = `${site}${base}${lang}/`
 
     <title>{title}</title>
   </head>
-  <body class="font-sans text-black antialiased">
+  <body class="font-sans text-headText antialiased">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4">
       {lang === 'de' ? 'Zum Inhalt springen' : 'Skip to content'}
     </a>

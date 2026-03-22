@@ -1,9 +1,11 @@
 import de from '../i18n/de.json'
 import en from '../i18n/en.json'
 
+export type Locale = 'en' | 'de'
+
 const dictionaries: Record<string, typeof en> = { en, de }
 
-export function getDictionary(lang: string) {
+export function getDictionary(lang: Locale) {
   return dictionaries[lang] ?? dictionaries.en
 }
 

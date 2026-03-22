@@ -6,17 +6,17 @@ import HandTherapy from '../../components/HandTherapy.astro'
 import ComingSoon from '../../components/ComingSoon.astro'
 import About from '../../components/About.astro'
 import Contact from '../../components/Contact.astro'
-import { getDictionary } from '../../lib/i18n'
+import { getDictionary, type Locale } from '../../lib/i18n'
 
 export function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'de' } }]
 }
 
-const { lang } = Astro.params
-const dict = getDictionary(lang!)
+const lang = Astro.params.lang as Locale
+const dict = getDictionary(lang)
 ---
 
-<BaseLayout title={dict.page_title} description={dict.page_description} lang={lang!} footerContent={dict.footer}>
+<BaseLayout title={dict.page_title} description={dict.page_description} lang={lang} footerContent={dict.footer}>
   <Hero content={dict.hero} />
   <Brand content={dict.brand} />
   <HandTherapy content={dict.hand_therapy} />

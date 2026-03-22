@@ -18,6 +18,9 @@
   --color-footer-bg: #283646;
   --color-footer-text: #cfd3d7;
   --color-surface: #fafafa;
+  --color-card-bg: #f4eaeacc;
+  --color-card-text: #545567;
+  --color-btn-secondary: #bbccc2;
   --shadow-3xl: 2px 2px 20px 0px #0000000a;
   --shadow-4xl: 0px 0px 20px 0px #eb4c6080;
 }

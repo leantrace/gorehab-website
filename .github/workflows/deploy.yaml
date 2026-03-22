@@ -29,10 +29,10 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
         env:
-          PUBLIC_EMAILJS_PUBLIC_KEY: ${{ vars.PUBLIC_EMAILJS_PUBLIC_KEY }}
-          PUBLIC_EMAILJS_SERVICE_ID: ${{ vars.PUBLIC_EMAILJS_SERVICE_ID }}
-          PUBLIC_EMAILJS_TEMPLATE_ID: ${{ vars.PUBLIC_EMAILJS_TEMPLATE_ID }}
-          PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID: ${{ vars.PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID }}
+          PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.PUBLIC_EMAILJS_PUBLIC_KEY }}
+          PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.PUBLIC_EMAILJS_SERVICE_ID }}
+          PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.PUBLIC_EMAILJS_TEMPLATE_ID }}
+          PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID: ${{ secrets.PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID }}
           PUBLIC_BUILD_NUMBER: ${{ github.run_number }}
       - uses: actions/upload-pages-artifact@v3
         with:
