@@ -10,11 +10,12 @@ const { content, lang } = Astro.props
 const base = import.meta.env.BASE_URL
 ---
 
-<footer id="newsletter" class="relative overflow-hidden bg-[#283646] px-4 pt-10 pb-10 md:pt-16 md:pb-16 lg:pt-20">
+<footer id="newsletter" class="relative overflow-hidden bg-footer-bg px-4 pt-10 pb-10 md:pt-16 md:pb-16 lg:pt-20">
   <img
     class="absolute top-0 left-0 max-sm:-ml-24 max-sm:size-[200px]"
     src={`${base}images/footer-union.svg`}
-    alt="footer shape"
+    alt=""
+    role="presentation"
     width="240"
     height="240"
     loading="lazy"
@@ -23,7 +24,7 @@ const base = import.meta.env.BASE_URL
 
   <div class="relative container mx-auto">
     <div class="mx-auto max-w-[1230px]">
-      <div class="grid grid-cols-12 gap-8 border-b border-[#4a7c62] pb-10 md:pb-16 lg:pb-28">
+      <div class="grid grid-cols-12 gap-8 border-b border-green pb-10 md:pb-16 lg:pb-28">
         <!-- Logo -->
         <div class="col-span-12 lg:col-span-3 xl:col-span-3">
           <a href={`${base}${lang}/`}>
@@ -43,13 +44,13 @@ const base = import.meta.env.BASE_URL
 
         <!-- Company Links -->
         <div class="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
-          <h2 class="mb-5 text-base font-bold text-[#7ab896] capitalize">
+          <h2 class="mb-5 text-base font-bold text-green-light capitalize">
             {content.company_title}
           </h2>
           <ul class="space-y-3">
             <li>
               <a
-                class="text-base font-normal text-[#CFD3D7]"
+                class="text-base font-normal text-footer-text"
                 href="https://www.linkedin.com/company/gorehab"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -62,10 +63,10 @@ const base = import.meta.env.BASE_URL
 
         <!-- Newsletter -->
         <div class="col-span-12 lg:col-span-4 xl:col-span-5">
-          <h2 class="mb-5 font-bold text-[#7ab896]">
+          <h2 class="mb-5 font-bold text-green-light">
             {content.newsletter_title}
           </h2>
-          <label class="mb-3 text-base font-normal text-[#CFD3D7]" for="email_footer">
+          <label class="mb-3 text-base font-normal text-footer-text" for="email_footer">
             {content.email_label}
           </label>
 
@@ -74,6 +75,7 @@ const base = import.meta.env.BASE_URL
             class="mt-2 flex"
             data-success={content.alert_success}
             data-error-email={content.alert_invalid_email}
+            data-error-generic={content.alert_error}
           >
             <input
               type="email"
@@ -81,11 +83,11 @@ const base = import.meta.env.BASE_URL
               name="email_from"
               required
               placeholder={content.email_placeholder}
-              class="w-full max-w-[180px] border border-[#387AE7] bg-[#4F5A68] p-2 text-[#CFD3D7] placeholder:text-[#77808B] focus:ring focus:ring-green-400 focus:outline-none md:max-w-[320px] md:p-4"
+              class="w-full max-w-[180px] border border-[#387AE7] bg-[#4F5A68] p-2 text-footer-text placeholder:text-[#77808B] focus:ring focus:ring-green-400 focus:outline-none md:max-w-[320px] md:p-4"
             />
             <button
               type="submit"
-              class="ml-2 w-24 rounded-md bg-[#4a7c62] px-2 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-40 md:ml-4 md:px-4"
+              class="ml-2 w-24 rounded-md bg-green px-2 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-40 md:ml-4 md:px-4"
             >
               {content.subscribe_btn}
             </button>
@@ -96,7 +98,7 @@ const base = import.meta.env.BASE_URL
       <!-- Bottom row -->
       <div class="flex flex-col-reverse pt-8 max-md:items-center max-md:gap-4 lg:grid lg:grid-cols-12">
         <div class="mt-4 flex items-center md:flex-row lg:col-span-3 xl:col-span-5">
-          <p class="text-base font-normal text-[#CFD3D7]">
+          <p class="text-base font-normal text-footer-text">
             {content.copyright}{' '}
           </p>
           <img
@@ -121,14 +123,14 @@ const base = import.meta.env.BASE_URL
               loading="lazy"
               decoding="async"
             />
-            <p class="w-[80%] text-base font-normal text-[#CFD3D7]">
+            <p class="w-[80%] text-base font-normal text-footer-text">
               {content.address}
             </p>
           </div>
 
           <div class="mt-3 flex items-start md:mt-0 md:ml-5">
             <img class="mr-3" src={`${base}images/icons/email.svg`} alt="Email" width="30" height="30" loading="lazy" decoding="async" />
-            <a class="text-base font-normal text-[#CFD3D7]" href="mailto:info@gorehab.ch"> info@gorehab.ch </a>
+            <a class="text-base font-normal text-footer-text" href="mailto:info@gorehab.ch"> info@gorehab.ch </a>
           </div>
         </div>
       </div>
@@ -137,9 +139,7 @@ const base = import.meta.env.BASE_URL
 </footer>
 
 <script>
-  import emailjs from '@emailjs/browser'
-
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  import { EMAIL_REGEX, emailjs, ensureInit } from '../lib/emailjs'
 
   function initFooterNewsletter() {
     const form = document.getElementById('footer-newsletter-form') as HTMLFormElement | null
@@ -147,12 +147,9 @@ const base = import.meta.env.BASE_URL
 
     const successMsg = form.dataset.success || 'Subscribed!'
     const errorEmailMsg = form.dataset.errorEmail || 'Please enter a valid email.'
+    const errorGenericMsg = form.dataset.errorGeneric || 'Something went wrong'
 
-    emailjs.init({
-      publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
-      blockHeadless: true,
-      limitRate: { id: 'footer', throttle: 10000 },
-    })
+    ensureInit()
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
@@ -177,8 +174,8 @@ const base = import.meta.env.BASE_URL
         window.showToast(successMsg, 'success')
         input.value = ''
       } catch (err: unknown) {
-        const msg = err instanceof Error ? err.message : 'Something went wrong'
-        window.showToast('Error: ' + msg, 'error')
+        const msg = err instanceof Error ? err.message : errorGenericMsg
+        window.showToast(msg, 'error')
       } finally {
         btn.disabled = false
         btn.textContent = originalText

@@ -13,7 +13,8 @@ const base = import.meta.env.BASE_URL
   <img
     class="absolute top-10 -right-24 -z-1 w-[200px] sm:top-12 sm:right-0 md:top-16 md:w-[350px] lg:top-20"
     src={`${base}images/right.svg`}
-    alt="decoration"
+    alt=""
+    role="presentation"
     width="400"
     height="400"
     loading="lazy"
@@ -26,10 +27,10 @@ const base = import.meta.env.BASE_URL
       </h2>
 
       <div class="mx-auto mb-12 max-w-4xl sm:mb-16 md:mb-18 lg:mb-22">
-        <p class="mt-2 mb-6 text-sm leading-normal font-light text-[#757575] md:text-lg">
+        <p class="mt-2 mb-6 text-sm leading-normal font-light text-body md:text-lg">
           {content.description_1}
         </p>
-        <p class="mt-2 mb-6 text-sm leading-normal font-light text-[#757575] md:text-lg">
+        <p class="mt-2 mb-6 text-sm leading-normal font-light text-body md:text-lg">
           {content.description_2}
         </p>
       </div>
@@ -40,7 +41,7 @@ const base = import.meta.env.BASE_URL
       <!-- Left arrow -->
       <button
         id="team-prev"
-        class="absolute top-1/3 -left-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#4a7c62] shadow-lg transition-opacity hover:bg-[#EFFAF4] md:-left-5"
+        class="absolute top-1/3 -left-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-green shadow-lg transition-opacity hover:bg-green-bg md:-left-5"
         aria-label="Previous team member"
       >
         &#8249;
@@ -49,7 +50,7 @@ const base = import.meta.env.BASE_URL
       <!-- Right arrow -->
       <button
         id="team-next"
-        class="absolute top-1/3 -right-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#4a7c62] shadow-lg transition-opacity hover:bg-[#EFFAF4] md:-right-5"
+        class="absolute top-1/3 -right-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-green shadow-lg transition-opacity hover:bg-green-bg md:-right-5"
         aria-label="Next team member"
       >
         &#8250;
@@ -60,12 +61,12 @@ const base = import.meta.env.BASE_URL
           {
             content.team &&
               content.team.map((member: { name: string; role: string; image: string }) => (
-                <div class="w-[260px] flex-shrink-0 snap-center">
+                <div class="w-[260px] shrink-0 snap-center">
                   <div class="flex flex-col items-center text-center">
                     <img
                       class="mx-auto h-60 w-60 rounded-full object-cover"
-                      src={`${base}${member.image.replace(/^\//, '')}`}
-                      srcset={`${base}${member.image.replace(/^\//, '').replace('.webp', '-sm.webp')} 260w, ${base}${member.image.replace(/^\//, '')} 480w`}
+                      src={`${base}${member.image}`}
+                      srcset={`${base}${member.image.replace('.webp', '-sm.webp')} 260w, ${base}${member.image} 480w`}
                       sizes="240px"
                       alt={member.name}
                       width="240"
@@ -73,8 +74,8 @@ const base = import.meta.env.BASE_URL
                       loading="lazy"
                       decoding="async"
                     />
-                    <h3 class="mt-4 text-base font-semibold text-[#4a7c62] sm:text-lg md:mt-5 md:text-xl">{member.name}</h3>
-                    <p class="mt-1 text-base font-normal text-[#757575] sm:text-lg md:text-xl">{member.role}</p>
+                    <h3 class="mt-4 text-base font-semibold text-green sm:text-lg md:mt-5 md:text-xl">{member.name}</h3>
+                    <p class="mt-1 text-base font-normal text-body sm:text-lg md:text-xl">{member.role}</p>
                   </div>
                 </div>
               ))

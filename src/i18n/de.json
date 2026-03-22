@@ -43,21 +43,22 @@
     "placeholder": "Geben Sie Ihre E-Mail ein",
     "button": "BEITRETEN",
     "alert_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
-    "alert_success": "Danke fürs Anmelden!"
+    "alert_success": "Danke fürs Anmelden!",
+    "alert_error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
   },
   "about": {
     "title": "Über uns",
     "description_1": "Wir sind ein junges Startup aus dem ARTORG Center for Biomedical Engineering Research der Universität Bern. Unser Ziel ist es, die Rehabilitation durch innovative, interaktive und datengesteuerte Lösungen neu zu definieren – beginnend mit unserem DextEgg-System.",
     "description_2": "Wir setzen uns leidenschaftlich dafür ein, effektive und motivierende Therapien für Menschen mit Rehabilitationsbedarf anzubieten – unabhängig von Ort und Zeit. Durch den Einsatz digitaler Technologien wollen wir die Therapie in Kliniken und darüber hinaus revolutionieren und die langfristige Selbstständigkeit im Alltag fördern.",
     "team": [
-      { "name": "Nic Krummenacher", "role": "Mitgründer / CEO", "image": "/images/s1.webp" },
-      { "name": "Samuel Knobel, MD PhD", "role": "Mitgründer / CTO", "image": "/images/s2.webp" },
-      { "name": "Alexander Schamne", "role": "Lead Developer", "image": "/images/s8.webp" },
-      { "name": "Dr. Stephan Gerber", "role": "Leiter Regulatory", "image": "/images/s3.webp" },
-      { "name": "Prof. Dr. Tobias Nef", "role": "Wissenschaftlicher Berater", "image": "/images/s4.webp" },
-      { "name": "Prof. Dr. Tim Vanbellingen", "role": "Klinischer Berater", "image": "/images/s5.webp" },
-      { "name": "Dr. Maurice Hälg", "role": "Unternehmerischer Berater", "image": "/images/s6.webp" },
-      { "name": "Dr. Gaëtan Marti", "role": "Unternehmerischer Berater", "image": "/images/s7.webp" }
+      { "name": "Nic Krummenacher", "role": "Mitgründer / CEO", "image": "images/s1.webp" },
+      { "name": "Samuel Knobel, MD PhD", "role": "Mitgründer / CTO", "image": "images/s2.webp" },
+      { "name": "Alexander Schamne", "role": "Lead Developer", "image": "images/s8.webp" },
+      { "name": "Dr. Stephan Gerber", "role": "Leiter Regulatory", "image": "images/s3.webp" },
+      { "name": "Prof. Dr. Tobias Nef", "role": "Wissenschaftlicher Berater", "image": "images/s4.webp" },
+      { "name": "Prof. Dr. Tim Vanbellingen", "role": "Klinischer Berater", "image": "images/s5.webp" },
+      { "name": "Dr. Maurice Hälg", "role": "Unternehmerischer Berater", "image": "images/s6.webp" },
+      { "name": "Dr. Gaëtan Marti", "role": "Unternehmerischer Berater", "image": "images/s7.webp" }
     ]
   },
   "contact": {
@@ -70,7 +71,8 @@
     "placeholder_message": "Erzählen Sie uns gerne von sich und wie wir Ihnen helfen können.",
     "button": "Absenden",
     "alert_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
-    "alert_success": "Nachricht erfolgreich gesendet!"
+    "alert_success": "Nachricht erfolgreich gesendet!",
+    "alert_error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
   },
   "footer": {
     "company_title": "Unternehmen",
@@ -82,6 +84,7 @@
     "copyright": "© Copyright",
     "address": "Freiburgstrasse 3 · 3010 Bern · Schweiz",
     "alert_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
-    "alert_success": "Erfolgreich zum Newsletter angemeldet!"
+    "alert_success": "Erfolgreich zum Newsletter angemeldet!",
+    "alert_error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
   }
 }

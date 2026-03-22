@@ -2,12 +2,6 @@
 <div id="toast-container" class="toast-container" aria-live="polite" role="status"></div>
 
 <script>
-  declare global {
-    interface Window {
-      showToast: (message: string, type?: 'success' | 'error') => void
-    }
-  }
-
   function showToast(message: string, type: 'success' | 'error' = 'success') {
     const container = document.getElementById('toast-container')
     if (!container) return

@@ -55,7 +55,7 @@ src/
     ├── en.json         # English translations
     └── de.json         # German translations
 public/
-├── fonts/              # Beatrice OTF files
+├── fonts/              # Beatrice WOFF2 files
 ├── images/             # All static images
 │   ├── brand/          # Partner/clinic logos
 │   ├── icons/          # UI icons
@@ -77,13 +77,17 @@ Defined in `src/styles/global.css` via Tailwind v4 `@theme` block:
 | `--shadow-3xl`     | `2px 2px 20px 0px #0000000a` | Subtle card shadow |
 | `--shadow-4xl`     | `0px 0px 20px 0px #eb4c6080` | Glow shadow        |
 
-Key brand colors used inline:
+Additional theme tokens:
 
-- `#4a7c62` — Green accent (buttons, team names, active language)
-- `#7ab896` — Light green accent (footer headings on dark background)
-- `#283646` — Footer dark background
-- `#EFFAF4` — Light green section background
-- `#757575` — Body/paragraph text
+- `--color-green` (`#4a7c62`) — Green accent (buttons, team names, active language)
+- `--color-green-hover` (`#5a856f`) — Green hover state
+- `--color-green-light` (`#7ab896`) — Light green accent (footer headings)
+- `--color-green-bg` (`#EFFAF4`) — Light green section background
+- `--color-body` (`#757575`) — Body/paragraph text
+- `--color-muted` (`#595959`) — Muted text and borders
+- `--color-footer-bg` (`#283646`) — Footer dark background
+- `--color-footer-text` (`#CFD3D7`) — Footer text color
+- `--color-surface` (`#FAFAFA`) — Surface/card background
 
 ## Important Conventions
 
@@ -125,12 +129,12 @@ Environment variables (prefixed `PUBLIC_` for Astro client-side access):
 - GitHub Actions workflow in `.github/workflows/deploy.yaml`
 - Deploys to GitHub Pages on push to `main`
 - Base path: `/gorehab-website/` (set in `astro.config.mjs`)
-- Add EmailJS secrets in GitHub repo Settings → Secrets → Actions
+- Add EmailJS variables in GitHub repo Settings → Variables → Actions
 
 ## Working Guidelines
 
 - **Keep it static** — no client-side JS except for form submissions and toast
 - **Security matters** — validate emails client-side, use EmailJS rate limiting
 - **Content is inline** — translations in JSON dictionaries, not CMS
-- **Alt text required** — never use empty `alt=""` on images
+- **Alt text required** — use descriptive `alt` on meaningful images, `alt=""` with `role="presentation"` on decorative images
 - **Base path awareness** — all internal links and asset paths must account for `/gorehab-website/` base

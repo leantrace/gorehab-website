@@ -9,11 +9,12 @@ const { content } = Astro.props
 const base = import.meta.env.BASE_URL
 ---
 
-<section class="relative z-1 overflow-x-clip bg-[#EFFAF4] px-4 py-12 md:py-16 lg:py-32">
+<section class="relative z-1 overflow-x-clip bg-green-bg px-4 py-12 md:py-16 lg:py-32">
   <img
     class="absolute bottom-0 -left-24 w-[200px] sm:left-0 md:w-[350px]"
     src={`${base}images/left.svg`}
-    alt="decoration"
+    alt=""
+    role="presentation"
     width="400"
     height="400"
     loading="lazy"
@@ -24,17 +25,17 @@ const base = import.meta.env.BASE_URL
       <div>
         <h2 class="font-beatrice text-headText text-2xl leading-[1.3] font-normal sm:text-3xl md:text-[44px]">
           {content.title_start}{' '}
-          <span class="font-semibold text-[#4a7c62]">{content.title_highlight}</span>
+          <span class="font-semibold text-green">{content.title_highlight}</span>
         </h2>
 
-        <p class="mt-2 mb-6 w-full text-sm leading-normal font-light text-[#595959] md:text-lg lg:max-w-[430px]">
+        <p class="mt-2 mb-6 w-full text-sm leading-normal font-light text-muted md:text-lg lg:max-w-[430px]">
           {content.description}
         </p>
 
         <h3 class="text-headText text-xl font-normal md:text-2xl">
           {content.healthcare_title}
         </h3>
-        <p class="mt-2 mb-6 w-full text-sm leading-normal font-light text-[#595959] md:mb-8 md:text-lg lg:max-w-[430px]">
+        <p class="mt-2 mb-6 w-full text-sm leading-normal font-light text-muted md:mb-8 md:text-lg lg:max-w-[430px]">
           {content.healthcare_desc}
         </p>
 
@@ -47,9 +48,12 @@ const base = import.meta.env.BASE_URL
           class="flex w-full flex-col gap-3 sm:flex-row sm:gap-4 lg:max-w-[480px]"
           data-success={content.alert_success}
           data-error-email={content.alert_invalid_email}
+          data-error-generic={content.alert_error}
         >
+          <label for="coming-soon-email" class="sr-only">{content.placeholder}</label>
           <input
-            class="w-full flex-1 rounded-lg border border-[#595959] bg-transparent p-3 text-sm font-normal text-[#595959] outline-0 placeholder:text-[#595959]/70 sm:p-4 sm:text-lg"
+            class="w-full flex-1 rounded-lg border border-muted bg-transparent p-3 text-sm font-normal text-muted outline-0 placeholder:text-muted/70 sm:p-4 sm:text-lg"
+            id="coming-soon-email"
             name="email_from"
             type="email"
             required
@@ -57,7 +61,7 @@ const base = import.meta.env.BASE_URL
           />
           <button
             type="submit"
-            class="w-full rounded-lg bg-[#4a7c62] px-6 py-3 text-sm font-medium whitespace-nowrap text-white transition-colors hover:bg-[#5a856f] sm:w-auto sm:py-4 sm:text-base"
+            class="w-full rounded-lg bg-green px-6 py-3 text-sm font-medium whitespace-nowrap text-white transition-colors hover:bg-green-hover sm:w-auto sm:py-4 sm:text-base"
           >
             {content.button}
           </button>
@@ -81,9 +85,7 @@ const base = import.meta.env.BASE_URL
 </section>
 
 <script>
-  import emailjs from '@emailjs/browser'
-
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  import { EMAIL_REGEX, emailjs, ensureInit } from '../lib/emailjs'
 
   function initComingSoonForm() {
     const form = document.getElementById('coming-soon-form') as HTMLFormElement | null
@@ -91,12 +93,9 @@ const base = import.meta.env.BASE_URL
 
     const successMsg = form.dataset.success || 'Thanks!'
     const errorEmailMsg = form.dataset.errorEmail || 'Invalid email.'
+    const errorGenericMsg = form.dataset.errorGeneric || 'Something went wrong'
 
-    emailjs.init({
-      publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
-      blockHeadless: true,
-      limitRate: { id: 'comingsoon', throttle: 10000 },
-    })
+    ensureInit()
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
@@ -121,8 +120,8 @@ const base = import.meta.env.BASE_URL
         window.showToast(successMsg, 'success')
         input.value = ''
       } catch (err: unknown) {
-        const msg = err instanceof Error ? err.message : 'Something went wrong'
-        window.showToast('Error: ' + msg, 'error')
+        const msg = err instanceof Error ? err.message : errorGenericMsg
+        window.showToast(msg, 'error')
       } finally {
         btn.disabled = false
         btn.textContent = originalText

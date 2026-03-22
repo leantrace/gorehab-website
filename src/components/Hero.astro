@@ -9,11 +9,14 @@ const { content } = Astro.props
 const base = import.meta.env.BASE_URL
 ---
 
-<section class="relative px-4 pt-10 pb-14 sm:pt-12 sm:pb-16 md:pt-14 md:pb-28">
+<section aria-label="Hero" class="relative px-4 pt-10 pb-14 sm:pt-12 sm:pb-16 md:pt-14 md:pb-28">
   <img
     src={`${base}images/hero-bg.svg`}
     class="absolute inset-0 h-full w-full object-cover object-bottom"
-    alt="hero background"
+    alt=""
+    role="presentation"
+    width="1440"
+    height="900"
     fetchpriority="high"
   />
   <div class="relative container mx-auto">
@@ -54,7 +57,7 @@ const base = import.meta.env.BASE_URL
             <div class="flex items-center">
               <img src={`${base}images/icons/h1.webp`} width="30" height="30" alt="B2B icon" loading="lazy" />
               <div class="ml-4">
-                <p class="text-sm font-bold text-[#595959]">{content.card_b2b_title}</p>
+                <p class="text-sm font-bold text-muted">{content.card_b2b_title}</p>
                 <p class="text-[11px] font-semibold text-[#545567]">{content.card_b2b_desc}</p>
               </div>
             </div>
@@ -67,7 +70,7 @@ const base = import.meta.env.BASE_URL
             <div class="flex items-center">
               <img src={`${base}images/icons/h2.webp`} width="30" height="30" alt="Congratulations icon" loading="lazy" />
               <div class="ml-4">
-                <p class="text-sm font-bold text-[#595959]">{content.card_congrats_title}</p>
+                <p class="text-sm font-bold text-muted">{content.card_congrats_title}</p>
                 <p class="text-[11px] font-semibold text-[#545567]">{content.card_congrats_desc}</p>
               </div>
             </div>
@@ -89,7 +92,7 @@ const base = import.meta.env.BASE_URL
             <div class="flex items-center">
               <img src={`${base}images/icons/h3.webp`} width="30" height="30" alt="B2C icon" loading="lazy" />
               <div class="ml-4">
-                <p class="text-sm font-bold text-[#595959]">{content.card_b2c_title}</p>
+                <p class="text-sm font-bold text-muted">{content.card_b2c_title}</p>
                 <p class="text-[11px] font-semibold text-[#545567]">{content.card_b2c_desc}</p>
               </div>
             </div>
@@ -105,9 +108,9 @@ const base = import.meta.env.BASE_URL
                 <div class="absolute right-0 bottom-0 h-[10px] w-[10px] rounded-full bg-red-500"></div>
               </div>
               <div class="ml-4">
-                <p class="text-[12px] font-bold text-[#595959]">{content.card_rehab_title}</p>
+                <p class="text-[12px] font-bold text-muted">{content.card_rehab_title}</p>
                 <p class="text-[10px] font-semibold text-[#545567]">{content.card_rehab_time}</p>
-                <p class="mt-1.5 inline-block rounded-full bg-[#4a7c62] px-6 py-1.5 text-[10px] font-bold text-white sm:mt-3">
+                <p class="mt-1.5 inline-block rounded-full bg-green px-6 py-1.5 text-[10px] font-bold text-white sm:mt-3">
                   {content.card_rehab_btn}
                 </p>
               </div>

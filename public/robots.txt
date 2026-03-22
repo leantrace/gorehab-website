@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leantrace.github.io/gorehab-website/sitemap-index.xml
