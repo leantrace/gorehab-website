@@ -28,6 +28,8 @@ const base = import.meta.env.BASE_URL
             <img
               class="w-40"
               src={`${base}images/logo/logo.webp`}
+              srcset={`${base}images/logo/logo-sm.webp 320w, ${base}images/logo/logo.webp 560w`}
+              sizes="160px"
               alt="GoRehab Logo"
               width="560"
               height="177"

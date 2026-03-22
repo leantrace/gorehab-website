@@ -22,6 +22,8 @@ const base = import.meta.env.BASE_URL
       <div class="order-2 justify-center pr-8 max-lg:flex lg:order-1 lg:pl-14">
         <img
           src={`${base}images/ht.webp`}
+          srcset={`${base}images/ht-sm.webp 400w, ${base}images/ht.webp 700w`}
+          sizes="(max-width: 1024px) 100vw, 50vw"
           class="-mb-14 w-full max-md:-mr-4"
           width="424"
           height="534"

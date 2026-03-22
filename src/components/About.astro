@@ -63,6 +63,8 @@ const base = import.meta.env.BASE_URL
                     <img
                       class="mx-auto h-60 w-60 rounded-full object-cover"
                       src={`${base}${member.image.replace(/^\//, '')}`}
+                      srcset={`${base}${member.image.replace(/^\//, '').replace('.webp', '-sm.webp')} 260w, ${base}${member.image.replace(/^\//, '')} 480w`}
+                      sizes="240px"
                       alt={member.name}
                       width="240"
                       height="240"
@@ -117,44 +119,48 @@ const base = import.meta.env.BASE_URL
     const itemCount = items.length
     if (itemCount === 0) return
 
-    // Calculate visible count based on container width
-    function getVisibleCount(): number {
-      const containerWidth = carousel!.clientWidth
-      // Each item is 260px + 32px gap
-      return Math.max(1, Math.floor((containerWidth + 32) / (260 + 32)))
-    }
+    const ITEM_WIDTH = 260 + 32
 
-    // Build dots
-    function buildDots() {
-      dotsContainer!.innerHTML = ''
-      const pageCount = Math.max(1, itemCount - getVisibleCount() + 1)
-      for (let i = 0; i < pageCount; i++) {
-        const dot = document.createElement('button')
-        dot.className = 'dot'
-        dot.setAttribute('aria-label', `Go to slide ${i + 1}`)
-        dot.addEventListener('click', () => scrollToIndex(i))
-        dotsContainer!.appendChild(dot)
-      }
-      updateDots()
+    function getVisibleCount(): number {
+      return Math.max(1, Math.floor((carousel!.clientWidth + 32) / ITEM_WIDTH))
     }
 
     function getCurrentIndex(): number {
+      return Math.round(carousel!.scrollLeft / ITEM_WIDTH)
+    }
+
+    function buildDots() {
+      const visibleCount = getVisibleCount()
       const scrollLeft = carousel!.scrollLeft
-      const itemWidth = 260 + 32 // item + gap
-      return Math.round(scrollLeft / itemWidth)
+      const current = Math.round(scrollLeft / ITEM_WIDTH)
+      const pageCount = Math.max(1, itemCount - visibleCount + 1)
+
+      requestAnimationFrame(() => {
+        dotsContainer!.innerHTML = ''
+        const fragment = document.createDocumentFragment()
+        for (let i = 0; i < pageCount; i++) {
+          const dot = document.createElement('button')
+          dot.className = i === current ? 'dot active' : 'dot'
+          dot.setAttribute('aria-label', `Go to slide ${i + 1}`)
+          dot.addEventListener('click', () => scrollToIndex(i))
+          fragment.appendChild(dot)
+        }
+        dotsContainer!.appendChild(fragment)
+      })
     }
 
     function updateDots() {
       const current = getCurrentIndex()
-      const dots = dotsContainer!.querySelectorAll('.dot')
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === current)
+      requestAnimationFrame(() => {
+        const dots = dotsContainer!.querySelectorAll('.dot')
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === current)
+        })
       })
     }
 
     function scrollToIndex(index: number) {
-      const itemWidth = 260 + 32
-      carousel!.scrollTo({ left: index * itemWidth, behavior: 'smooth' })
+      carousel!.scrollTo({ left: index * ITEM_WIDTH, behavior: 'smooth' })
     }
 
     prevBtn.addEventListener('click', () => {
@@ -168,12 +174,19 @@ const base = import.meta.env.BASE_URL
       scrollToIndex(Math.min(maxIndex, current + 1))
     })
 
-    carousel.addEventListener('scroll', updateDots)
+    let scrollTimer: ReturnType<typeof setTimeout>
+    carousel.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer)
+      scrollTimer = setTimeout(updateDots, 50)
+    })
 
     buildDots()
-    window.addEventListener('resize', buildDots)
+    let resizeTimer: ReturnType<typeof setTimeout>
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(buildDots, 150)
+    })
   }
 
-  document.addEventListener('astro:page-load', initTeamCarousel)
   initTeamCarousel()
 </script>

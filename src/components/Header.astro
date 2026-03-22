@@ -21,7 +21,15 @@ const isEnglish = lang === 'en'
         <!-- Logo -->
         <div>
           <a href={`${base}${lang}/`}>
-            <img class="w-32" src={`${base}images/logo/logo.webp`} alt="GoRehab Logo" width="560" height="177" />
+            <img
+              class="w-32"
+              src={`${base}images/logo/logo.webp`}
+              srcset={`${base}images/logo/logo-sm.webp 320w, ${base}images/logo/logo.webp 560w`}
+              sizes="128px"
+              alt="GoRehab Logo"
+              width="560"
+              height="177"
+            />
           </a>
         </div>
 

@@ -71,7 +71,16 @@ const base = import.meta.env.BASE_URL
             </div>
           </div>
 
-          <img class="w-full" src={`${base}images/hero-right.webp`} alt="DextEgg Hero" width="650" height="410" fetchpriority="high" />
+          <img
+            class="w-full"
+            src={`${base}images/hero-right.webp`}
+            srcset={`${base}images/hero-right-sm.webp 420w, ${base}images/hero-right.webp 552w`}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            alt="DextEgg Hero"
+            width="650"
+            height="410"
+            fetchpriority="high"
+          />
 
           <!-- Card 3: B2C -->
           <div class="relative right-0 bottom-0 mb-2 w-full rounded-lg bg-[#f4eaeacc] px-4 py-2 sm:absolute sm:mb-0 sm:w-[220px] sm:py-3">
