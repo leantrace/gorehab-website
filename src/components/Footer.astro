@@ -102,7 +102,6 @@ const buildNumber = import.meta.env.PUBLIC_BUILD_NUMBER || '0'
           <p class="text-footer-text text-base font-normal">
             {content.copyright}{' '}
           </p>
-          <span class="text-footer-text/50 ml-2 text-[10px]">v1.0.{buildNumber}</span>
           <img
             width="560"
             height="177"
@@ -112,6 +111,7 @@ const buildNumber = import.meta.env.PUBLIC_BUILD_NUMBER || '0'
             loading="lazy"
             decoding="async"
           />
+          <span class="text-footer-text/50 ml-2 text-[10px]">(v1.0.{buildNumber})</span>
         </div>
 
         <div class="flex w-full flex-col md:flex-row lg:col-span-9 lg:justify-end xl:col-span-7">
