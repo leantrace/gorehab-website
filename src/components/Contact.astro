@@ -8,7 +8,7 @@ interface Props {
 const { content } = Astro.props
 ---
 
-<section id="contact" class="relative bg-surface py-12 md:py-16 lg:py-24">
+<section id="contact" class="bg-surface relative py-12 md:py-16 lg:py-24">
   <div class="container mx-auto px-4">
     <h2
       class="font-beatrice text-headText mx-auto mb-6 max-w-xl text-center text-2xl leading-[1.3] font-semibold sm:text-3xl md:text-[44px]"
@@ -16,14 +16,19 @@ const { content } = Astro.props
       {content.title}
     </h2>
     <div class="mx-auto max-w-[800px]">
-      <form id="contact-form" data-success={content.alert_success} data-error-email={content.alert_invalid_email} data-error-generic={content.alert_error}>
+      <form
+        id="contact-form"
+        data-success={content.alert_success}
+        data-error-email={content.alert_invalid_email}
+        data-error-generic={content.alert_error}
+      >
         <div class="grid grid-cols-12 gap-5 md:gap-10">
           <div class="col-span-12 md:col-span-6">
             <label class="text-headText mb-2 block text-sm font-medium sm:text-lg md:text-xl lg:text-2xl" for="fname">
               {content.label_name}
             </label>
             <input
-              class="w-full rounded-lg border border-muted p-3 text-sm font-normal text-muted outline-0 sm:p-4 sm:text-lg"
+              class="border-muted text-muted w-full rounded-lg border p-3 text-sm font-normal outline-0 sm:p-4 sm:text-lg"
               id="fname"
               name="fname"
               type="text"
@@ -36,7 +41,7 @@ const { content } = Astro.props
               {content.label_email}
             </label>
             <input
-              class="w-full rounded-lg border border-muted p-3 text-sm font-normal text-muted outline-0 sm:p-4 sm:text-lg"
+              class="border-muted text-muted w-full rounded-lg border p-3 text-sm font-normal outline-0 sm:p-4 sm:text-lg"
               id="contact-email"
               name="email_from"
               type="email"
@@ -51,7 +56,7 @@ const { content } = Astro.props
             {content.label_message}
           </label>
           <textarea
-            class="h-[150px] w-full resize-none rounded-lg border border-muted p-3 text-sm font-normal text-muted outline-0 sm:h-[200px] sm:p-4 sm:text-lg md:h-[250px] lg:h-[200px]"
+            class="border-muted text-muted h-[150px] w-full resize-none rounded-lg border p-3 text-sm font-normal outline-0 sm:h-[200px] sm:p-4 sm:text-lg md:h-[250px] lg:h-[200px]"
             id="message"
             placeholder={content.placeholder_message}
             required
@@ -60,7 +65,7 @@ const { content } = Astro.props
 
         <button
           type="submit"
-          class="mt-5 w-full rounded-lg bg-green py-3 text-sm font-bold text-white transition-opacity hover:bg-green-hover sm:mt-6 sm:text-lg md:mt-10 md:py-4"
+          class="bg-green hover:bg-green-hover mt-5 w-full rounded-lg py-3 text-sm font-bold text-white transition-opacity sm:mt-6 sm:text-lg md:mt-10 md:py-4"
         >
           {content.button}
         </button>

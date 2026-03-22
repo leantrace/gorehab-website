@@ -12,12 +12,12 @@
   --color-green: #4a7c62;
   --color-green-hover: #5a856f;
   --color-green-light: #7ab896;
-  --color-green-bg: #EFFAF4;
+  --color-green-bg: #effaf4;
   --color-body: #757575;
   --color-muted: #595959;
   --color-footer-bg: #283646;
-  --color-footer-text: #CFD3D7;
-  --color-surface: #FAFAFA;
+  --color-footer-text: #cfd3d7;
+  --color-surface: #fafafa;
   --shadow-3xl: 2px 2px 20px 0px #0000000a;
   --shadow-4xl: 0px 0px 20px 0px #eb4c6080;
 }

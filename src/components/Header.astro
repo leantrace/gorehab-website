@@ -36,7 +36,7 @@ const isEnglish = lang === 'en'
             <a
               href={deUrl}
               aria-current={!isEnglish ? 'page' : undefined}
-              class:list={['transition-colors', !isEnglish ? 'font-bold text-green' : 'text-gray-500 hover:text-green']}
+              class:list={['transition-colors', !isEnglish ? 'text-green font-bold' : 'hover:text-green text-gray-500']}
             >
               DE
             </a>
@@ -44,7 +44,7 @@ const isEnglish = lang === 'en'
             <a
               href={enUrl}
               aria-current={isEnglish ? 'page' : undefined}
-              class:list={['transition-colors', isEnglish ? 'font-bold text-green' : 'text-gray-500 hover:text-green']}
+              class:list={['transition-colors', isEnglish ? 'text-green font-bold' : 'hover:text-green text-gray-500']}
             >
               EN
             </a>
