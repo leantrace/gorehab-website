@@ -1,22 +1,23 @@
 import eslintPluginAstro from 'eslint-plugin-astro'
 import prettierConfig from 'eslint-config-prettier'
-import tseslint from '@typescript-eslint/eslint-plugin'
-import tsparser from '@typescript-eslint/parser'
+import tseslint from 'typescript-eslint'
+
+const tsFiles = ['**/*.{ts,tsx,mts,cts}']
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+  ...tseslint.configs.recommended.map((cfg) => ({
+    ...cfg,
+    files: cfg.files ?? tsFiles,
+  })),
+  ...eslintPluginAstro.configs['flat/recommended'],
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['*.astro', '**/*.astro'],
     languageOptions: {
-      parser: tsparser,
-    },
-    plugins: {
-      '@typescript-eslint': tseslint,
-    },
-    rules: {
-      ...tseslint.configs.recommended.rules,
+      parserOptions: {
+        parser: tseslint.parser,
+      },
     },
   },
-  ...eslintPluginAstro.configs.recommended,
   prettierConfig,
 ]

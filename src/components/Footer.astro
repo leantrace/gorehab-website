@@ -79,6 +79,8 @@ const buildNumber = import.meta.env.PUBLIC_BUILD_NUMBER || '0'
             data-error-email={content.alert_invalid_email}
             data-error-generic={content.alert_error}
           >
+            <!-- Honeypot field — hidden from humans, traps bots -->
+            <input type="text" name="website_url" autocomplete="off" tabindex="-1" class="!absolute !-left-[9999px] !h-0 !w-0 !overflow-hidden" />
             <input
               type="email"
               id="email_footer"

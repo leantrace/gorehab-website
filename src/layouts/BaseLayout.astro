@@ -13,7 +13,7 @@ interface Props {
 }
 
 const base = import.meta.env.BASE_URL
-const site = 'https://leantrace.github.io'
+const site = Astro.site?.origin ?? 'https://leantrace.github.io'
 const { title, description, lang, footerContent } = Astro.props
 const desc = description ?? 'GoRehab - Interactive hand rehabilitation therapy'
 const canonicalUrl = `${site}${base}${lang}/`

@@ -84,7 +84,7 @@ const base = import.meta.env.BASE_URL
       </div>
 
       <!-- Dot indicators -->
-      <div id="team-dots" class="mt-4 flex justify-center gap-2"></div>
+      <div id="team-dots" role="group" aria-label="Team carousel pagination" class="mt-4 flex justify-center gap-2"></div>
     </div>
   </div>
 </section>
@@ -145,7 +145,7 @@ const base = import.meta.env.BASE_URL
           const dot = document.createElement('button')
           dot.className = i === current ? 'dot active' : 'dot'
           dot.setAttribute('aria-label', `Go to slide ${i + 1}`)
-          dot.setAttribute('aria-pressed', String(i === current))
+          if (i === current) dot.setAttribute('aria-current', 'true')
           dot.addEventListener('click', () => scrollToIndex(i))
           fragment.appendChild(dot)
         }
@@ -159,7 +159,11 @@ const base = import.meta.env.BASE_URL
         const dots = dotsContainer!.querySelectorAll('.dot')
         dots.forEach((dot, i) => {
           dot.classList.toggle('active', i === current)
-          dot.setAttribute('aria-pressed', String(i === current))
+          if (i === current) {
+            dot.setAttribute('aria-current', 'true')
+          } else {
+            dot.removeAttribute('aria-current')
+          }
         })
       })
     }
