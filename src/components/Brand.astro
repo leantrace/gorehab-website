@@ -29,7 +29,15 @@ const brands = [
           {
             [...brands, ...brands].map((brand, i) => (
               <div class="mx-[15px] flex max-h-[200px] min-h-[100px] w-[150px] flex-shrink-0 items-center justify-center md:mx-[30px]">
-                <img class="h-auto max-h-[100px] w-auto" src={brand.image} alt="Partner logo" width="150" height="100" loading="lazy" decoding="async" />
+                <img
+                  class="h-auto max-h-[100px] w-auto"
+                  src={brand.image}
+                  alt="Partner logo"
+                  width="150"
+                  height="100"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             ))
           }
