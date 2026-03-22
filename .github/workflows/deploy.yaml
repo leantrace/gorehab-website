@@ -33,6 +33,7 @@ jobs:
           PUBLIC_EMAILJS_SERVICE_ID: ${{ vars.PUBLIC_EMAILJS_SERVICE_ID }}
           PUBLIC_EMAILJS_TEMPLATE_ID: ${{ vars.PUBLIC_EMAILJS_TEMPLATE_ID }}
           PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID: ${{ vars.PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID }}
+          PUBLIC_BUILD_NUMBER: ${{ github.run_number }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
