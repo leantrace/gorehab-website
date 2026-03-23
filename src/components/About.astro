@@ -123,9 +123,10 @@ const base = import.meta.env.BASE_URL
     if (itemCount === 0) return
 
     const ITEM_WIDTH = 260 + 32
+    let cachedWidth = carousel.clientWidth
 
     function getVisibleCount(): number {
-      return Math.max(1, Math.floor((carousel!.clientWidth + 32) / ITEM_WIDTH))
+      return Math.max(1, Math.floor((cachedWidth + 32) / ITEM_WIDTH))
     }
 
     function getCurrentIndex(): number {
@@ -133,9 +134,10 @@ const base = import.meta.env.BASE_URL
     }
 
     function buildDots() {
+      // Batch all layout reads before any DOM writes
+      cachedWidth = carousel!.clientWidth
       const visibleCount = getVisibleCount()
-      const scrollLeft = carousel!.scrollLeft
-      const current = Math.round(scrollLeft / ITEM_WIDTH)
+      const current = getCurrentIndex()
       const pageCount = Math.max(1, itemCount - visibleCount + 1)
 
       requestAnimationFrame(() => {
@@ -154,6 +156,7 @@ const base = import.meta.env.BASE_URL
     }
 
     function updateDots() {
+      // Read layout property outside rAF, write inside
       const current = getCurrentIndex()
       requestAnimationFrame(() => {
         const dots = dotsContainer!.querySelectorAll('.dot')
@@ -189,7 +192,9 @@ const base = import.meta.env.BASE_URL
       scrollTimer = setTimeout(updateDots, 50)
     })
 
-    buildDots()
+    // Defer initial dot build to after layout is stable
+    requestAnimationFrame(() => buildDots())
+
     let resizeTimer: ReturnType<typeof setTimeout>
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer)

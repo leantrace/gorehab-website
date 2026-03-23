@@ -67,7 +67,13 @@ const { content } = Astro.props
         </div>
 
         <!-- Honeypot field — hidden from humans, traps bots -->
-        <input type="text" name="website_url" autocomplete="off" tabindex="-1" class="!absolute !-left-[9999px] !h-0 !w-0 !overflow-hidden" />
+        <input
+          type="text"
+          name="website_url"
+          autocomplete="off"
+          tabindex="-1"
+          class="!absolute !-left-[9999px] !h-0 !w-0 !overflow-hidden"
+        />
 
         <button
           type="submit"
@@ -81,7 +87,7 @@ const { content } = Astro.props
 </section>
 
 <script>
-  import { EMAIL_REGEX, emailjs, ensureInit, isHoneypotFilled, isRateLimited, markSubmitted } from '../lib/emailjs'
+  import { EMAIL_REGEX, isHoneypotFilled, isRateLimited, markSubmitted, sendContactForm } from '../lib/emailjs'
 
   function initContactForm() {
     const form = document.getElementById('contact-form') as HTMLFormElement | null
@@ -90,8 +96,6 @@ const { content } = Astro.props
     const successMsg = form.dataset.success || 'Sent!'
     const errorEmailMsg = form.dataset.errorEmail || 'Invalid email.'
     const errorGenericMsg = form.dataset.errorGeneric || 'Something went wrong'
-
-    ensureInit()
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
@@ -112,7 +116,7 @@ const { content } = Astro.props
       btn.textContent = '...'
 
       try {
-        await emailjs.sendForm(import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID, form)
+        await sendContactForm(form)
 
         markSubmitted('contact-form')
         window.showToast(successMsg, 'success')
